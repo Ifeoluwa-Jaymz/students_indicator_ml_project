@@ -5,10 +5,6 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from exception import CustomException
 from logger import logging
-#from src.exception import CustomException
-#from logger import logging
-#from src.exception import CustomException
-#from src.logger import logging
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
@@ -17,8 +13,8 @@ from dataclasses import dataclass
 from components.data_transformation import DataTransformation
 from components.data_transformation import DataTransformationConfig
 
-#from components.model_trainer import ModelTrainerConfig
-#from components.model_trainer import ModelTrainer
+from components.model_trainer import ModelTrainerConfig
+from components.model_trainer import ModelTrainer
 @dataclass
 class DataIngestionConfig:
     train_data_path: str=os.path.join('artifacts',"train.csv")
@@ -64,5 +60,5 @@ if __name__=="__main__":
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    #modeltrainer=ModelTrainer()
-    #print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
